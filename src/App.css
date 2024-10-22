@@ -1,32 +1,42 @@
-.container-produtos, .container-usuarios {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-.produto-item, .usuario-item {
-  flex: 1 1 calc(33.33% - 16px); /* Três itens por linha */
-  border: 1px solid #ccc;
+.logo {
+  height: 6em;
   padding: 1.5em;
-  border-radius: 8px;
-  text-align: left;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.produto-item:hover, .usuario-item:hover {
-  transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-  .produto-item, .usuario-item {
-    flex: 1 1 calc(50% - 16px); /* Dois itens por linha */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
-@media (max-width: 480px) {
-  .produto-item, .usuario-item {
-    flex: 1 1 100%; /* Um item por linha */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
   }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
 }
