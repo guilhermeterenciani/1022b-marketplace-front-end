@@ -12,7 +12,7 @@ function App() {
   const [produtos, setProdutos] = useState<ProdutoType[]>([])
   //useEffect(O QUe fazer, Quando Fazer)
   useEffect(()=>{
-    fetch("https://one022b-marketplace.onrender.com/produtos")
+    fetch("https://one022b-marketplace-1lh5.onrender.com/produtos")
     .then(resposta=>resposta.json())
     .then(dados=>setProdutos(dados))
   },[])
@@ -23,7 +23,7 @@ function App() {
           return(
             <div key={prod.id} className="produto-item">
               <h1>{prod.nome}</h1>
-              <p>{prod.imagem}</p>
+              <img src={prod.imagem} alt="Imagem Celular" className="src"/>
               <p>{prod.preco}</p>
               <p>{prod.descricao}</p>
             </div>
