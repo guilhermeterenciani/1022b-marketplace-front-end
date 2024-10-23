@@ -26,7 +26,7 @@ function App() {
 
   // useEffect para carregar produtos e usuários
   useEffect(() => {
-    setNome("Guilherme Terenciani")
+    setNome("Luis Guilherme")
 
     // Buscar os produtos
     fetch("https://one022b-marketplace-1lh5.onrender.com/produtos")
