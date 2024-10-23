@@ -29,7 +29,7 @@ function App() {
     setNome("Luis Guilherme")
 
     // Buscar os produtos
-    fetch("shttps://one022b-marketplace-1lh5.onrender.com/produtos")
+    fetch("https://one022b-marketplace-1lh5.onrender.com/prod")
       .then(resposta => resposta.json())
       .then(dados => setProdutos(dados))
 
