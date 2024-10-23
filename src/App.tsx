@@ -25,7 +25,7 @@ function App() {
   const [usuarios, setUsuarios] = useState<UsuarioType[]>([])
 
   // useEffect para carregar produtos e usuários
-  useEffect(() => {
+  useState(() => {
     setNome("Luis Guilherme")
 
     // Buscar os produtos
