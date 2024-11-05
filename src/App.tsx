@@ -26,7 +26,7 @@ function App() {
 
   // useEffect para carregar produtos e usuários
   useEffect(() => {
-    setNome("Luis Guilherme")
+    setNome("Aulaine UA")
 
     // Buscar os produtos
     fetch("https://one022b-marketplace-1lh5.onrender.com/produtos")
@@ -41,20 +41,20 @@ function App() {
 
   return (
     <>
-      <h1>{nome}</h1>
 
       {/* Listagem de Produtos */}
       <div className="produtos-container">
-        <h2>Produtos</h2>
+        <h1>{nome}</h1>
         {
           produtos.map(produto => (
             <div key={produto.id} className="produto-item">
-              <h1>{produto.nome}</h1>
+              <h2>{produto.nome}</h2>
               <div className='container-imagem'>
-                <img src={produto.imagem} alt="Imagem do produto" />
+                <img className='imagem-prod' src={produto.imagem} alt="Imagem do produto" />
               </div>
-              <p>{produto.preco}</p>
-              <p>{produto.descricao}</p>
+              <p className='preco-prod'>{produto.preco}</p>
+              <p className='desc-prod'>{produto.descricao}</p>
+              <p className='compre-agora'>Compre Agora</p>
             </div>
           ))
         }
@@ -62,18 +62,29 @@ function App() {
 
       {/* Listagem de Usuários */}
       <div className="usuarios-container">
-        <h2>Usuários</h2>
-        {
-          usuarios.map(usuario => (
-            <div key={usuario.id} className="usuario-item">
-              <h1>{usuario.name}</h1>
-              <p>Email: {usuario.email}</p>
-              <p>Criado em: {new Date(usuario.created_at).toLocaleDateString()}</p>
-              <p>Atualizado em: {new Date(usuario.updated_at).toLocaleDateString()}</p>
-            </div>
-          ))
-        }
-      </div>
+  <h2>Usuários</h2>
+  <table className="usuarios-tabela">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Criado em</th>
+        <th>Atualizado em</th>
+      </tr>
+    </thead>
+    <tbody>
+      {usuarios.map(usuario => (
+        <tr key={usuario.id}>
+          <td>{usuario.name}</td>
+          <td>{usuario.email}</td>
+          <td>{new Date(usuario.created_at).toLocaleDateString()}</td>
+          <td>{new Date(usuario.updated_at).toLocaleDateString()}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
     </>
   )
 }
