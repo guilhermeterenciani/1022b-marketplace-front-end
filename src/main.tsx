@@ -7,7 +7,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import CadastroProduto from './CadastroProduto.tsx';
+import CadastroProduto from './CadastroProduto.tsx'
 
 const router = createBrowserRouter([
   {
