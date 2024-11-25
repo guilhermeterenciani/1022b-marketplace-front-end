@@ -14,9 +14,7 @@ type ProdutoType = {
 type UsuarioType = {
   id: number,
   name: string,
-  email: string,
-  created_at: string,
-  updated_at: string
+  email: string
 }
 
 function App() {
@@ -26,7 +24,7 @@ function App() {
 
   // useEffect para carregar produtos e usuários
   useEffect(() => {
-    setNome("Aulaine UA")
+    setNome("EasyGym")
 
     // Buscar os produtos
     fetch("https://one022b-marketplace-1lh5.onrender.com/produtos")
@@ -77,8 +75,6 @@ function App() {
         <tr key={usuario.id}>
           <td>{usuario.name}</td>
           <td>{usuario.email}</td>
-          <td>{new Date(usuario.created_at).toLocaleDateString()}</td>
-          <td>{new Date(usuario.updated_at).toLocaleDateString()}</td>
         </tr>
       ))}
     </tbody>

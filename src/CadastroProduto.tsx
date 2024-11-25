@@ -19,7 +19,7 @@ export default function CadastroProduto(){
             preco: preco,
             imagem: imagem
         }
-        fetch("http://localhost:8000/produtos",{
+        fetch("http://localhost:5173/produtos",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
