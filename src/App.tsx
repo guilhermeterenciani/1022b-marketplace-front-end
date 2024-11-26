@@ -12,8 +12,8 @@ type ProdutoType = {
 
 // Tipo para usuários
 type UsuarioType = {
+  nome: string,
   id: number,
-  name: string,
   email: string
 }
 
@@ -66,14 +66,12 @@ function App() {
       <tr>
         <th>Nome</th>
         <th>Email</th>
-        <th>Criado em</th>
-        <th>Atualizado em</th>
       </tr>
     </thead>
     <tbody>
       {usuarios.map(usuario => (
         <tr key={usuario.id}>
-          <td>{usuario.name}</td>
+          <td>{usuario.nome}</td>
           <td>{usuario.email}</td>
         </tr>
       ))}
