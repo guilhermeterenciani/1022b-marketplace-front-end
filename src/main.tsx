@@ -12,7 +12,7 @@ import CadastroUsuario from './CadastroUsuario.tsx';
 
 const router = createBrowserRouter([
   {
-    path: "/cadastro",
+    path: "/",
     element: <App />,
   },
   {

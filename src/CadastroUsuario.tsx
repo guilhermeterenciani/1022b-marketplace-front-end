@@ -15,7 +15,7 @@ export default function CadastroUsuario(){
             nome: nome,
             email: email
         }
-        fetch("http://localhost:8000/produtos",{
+        fetch("http://localhost:8000/usuarios",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -23,11 +23,11 @@ export default function CadastroUsuario(){
             body: JSON.stringify(produto)
         }).then(response => {
             if(response.status === 200){
-                alert("Produto cadastrado com sucesso")
+                alert("Usuário cadastrado com sucesso")
                 navigate("/")
             }
             else{
-                alert("Erro ao cadastrar produto")
+                alert("Erro ao cadastrar usuário")
             }
         })
     }
@@ -43,7 +43,7 @@ export default function CadastroUsuario(){
 
     return(
         <>
-            <h1>Tela Cadastro Produtos</h1>
+            <h1>Tela Cadastro Usuários</h1>
             <form onSubmit={handleForm}>
                 <div>
                     <label htmlFor="id">id</label>
