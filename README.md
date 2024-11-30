@@ -48,3 +48,7 @@ export default tseslint.config({
   },
 })
 ```
+
+Informações Trabalho
+O projeto pode ser rodado ao instalar o frontend, backend, banco de dados e o render no navegador.
+O tema escolhido foi algo virado para academia, tendo como produtos, creatina, whey e durateston.
