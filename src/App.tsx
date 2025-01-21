@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './App.css'
 
 type ProdutoType = {
@@ -18,12 +18,12 @@ function App() {
     .then(dados=>setProdutos(dados))
   },[])
   function handleExcluir(id:number){
-    fetch('https://localhost:8000/produtos/${id}',{
-      method: 'DELETE'
+    fetch(`http://localhost:8000/produtos/${id}`,{
+      method:"DELETE"
     })
     .then(resposta=>{
       if(resposta.status==200){
-        alert("Excluido com sucesso")
+        alert("Excluído com sucesso")
         window.location.reload()
       }
       else{
@@ -31,6 +31,7 @@ function App() {
       }
     })
   }
+
   return (
     <>  
       <div className="container-produtos">
@@ -42,7 +43,7 @@ function App() {
               <p>{prod.preco}</p>
               <p>{prod.descricao}</p>
               <button onClick={()=>{handleExcluir(prod.id)}}>Excluir</button>
-              <Link to={'/alterar-produto/${prod.id}'}>Alterar</Link>
+              <Link to={`/alterar-produto/${prod.id}`}>Alterar</Link>
             </div>
           )
         })}
