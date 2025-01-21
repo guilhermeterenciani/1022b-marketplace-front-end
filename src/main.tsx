@@ -9,6 +9,8 @@ import {
 import CadastroProduto from './componentes/cadastroproduto/CadastroProduto.tsx';
 
 
+//Crie um comentário explicando o que faz o código abaixo
+//Cria uma instância do BrowserRouter e passa um array de objetos com as rotas da aplicação
 const router = createBrowserRouter([
   {
     path: "/",

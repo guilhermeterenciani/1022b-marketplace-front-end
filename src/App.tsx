@@ -1,84 +1,53 @@
 import { useEffect, useState } from 'react'
+import { Link} from 'react-router-dom'
 import './App.css'
 
-// Tipo para produtos
 type ProdutoType = {
-  id: number,
-  nome: string,
-  preco: string,
-  descricao: string,
-  imagem: string
+  id:number,
+  nome:string,
+  descricao:string,
+  preco:string,
+  imagem:string
 }
-
-// Tipo para usuários
-type UsuarioType = {
-  nome: string,
-  id: number,
-  email: string
-}
-
 function App() {
-  const [nome, setNome] = useState("")
   const [produtos, setProdutos] = useState<ProdutoType[]>([])
-  const [usuarios, setUsuarios] = useState<UsuarioType[]>([])
-
-  // useEffect para carregar produtos e usuários
-  useEffect(() => {
-    setNome("EasyGym")
-
-    // Buscar os produtos
-    fetch("https://one022b-marketplace-1lh5.onrender.com/produtos")
-      .then(resposta => resposta.json())
-      .then(dados => setProdutos(dados))
-
-    // Buscar os usuários
-    fetch("https://one022b-marketplace-1lh5.onrender.com/usuarios")
-      .then(resposta => resposta.json())
-      .then(dados => setUsuarios(dados))
-  }, [])
-
+  //useEffect(O QUe fazer, Quando Fazer)
+  useEffect(()=>{
+    fetch("http://localhost:8000/produtos")
+    .then(resposta=>resposta.json())
+    .then(dados=>setProdutos(dados))
+  },[])
+  function handleExcluir(id:number){
+    fetch('https://localhost:8000/produtos/${id}',{
+      method: 'DELETE'
+    })
+    .then(resposta=>{
+      if(resposta.status==200){
+        alert("Excluido com sucesso")
+        window.location.reload()
+      }
+      else{
+        alert("Erro ao excluir")
+      }
+    })
+  }
   return (
-    <>
-
-      {/* Listagem de Produtos */}
-      <div className="produtos-container">
-        <h1>{nome}</h1>
-        {
-          produtos.map(produto => (
-            <div key={produto.id} className="produto-item">
-              <h2>{produto.nome}</h2>
-              <div className='container-imagem'>
-                <img className='imagem-prod' src={produto.imagem} alt="Imagem do produto" />
-              </div>
-              <p className='preco-prod'>{produto.preco}</p>
-              <p className='desc-prod'>{produto.descricao}</p>
-              <p className='compre-agora'>Compre Agora</p>
+    <>  
+      <div className="container-produtos">
+        {produtos.map(prod=>{
+          return(
+            <div key={prod.id} className="produto-item">
+              <h1>{prod.nome}</h1>
+              <img src={prod.imagem} alt="Imagem de celular" />
+              <p>{prod.preco}</p>
+              <p>{prod.descricao}</p>
+              <button onClick={()=>{handleExcluir(prod.id)}}>Excluir</button>
+              <Link to={'/alterar-produto/${prod.id}'}>Alterar</Link>
             </div>
-          ))
-        }
+          )
+        })}
       </div>
-
-      {/* Listagem de Usuários */}
-      <div className="usuarios-container">
-  <h2>Usuários</h2>
-  <table className="usuarios-tabela">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      {usuarios.map(usuario => (
-        <tr key={usuario.id}>
-          <td>{usuario.nome}</td>
-          <td>{usuario.email}</td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
+      
     </>
   )
 }
