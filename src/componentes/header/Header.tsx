@@ -7,7 +7,7 @@ function Header(){
             <nav>
                 <ul>
                     <li>
-                        <Link to="/cadastro-produto">Cadastrar Produto</Link>
+                        <Link to="/cadastro-exercicio">Cadastrar Exercício</Link>
                     </li>
                 </ul>
             </nav>

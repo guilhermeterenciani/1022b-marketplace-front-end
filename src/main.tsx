@@ -6,10 +6,10 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import CadastroProduto from './componentes/cadastroproduto/CadastroProduto.tsx';
-import AlterarProduto from './componentes/alterarproduto/AlterarProduto.tsx';
-import Header from './componentes/header/Header.tsx';
 
+import CadastroExercicio from './componentes/cadastroexercicio/CadastroExercicio.tsx'
+import AlterarExercicio from './componentes/alterarexercicio/AlterarExercicio.tsx'
+import Header from './componentes/header/Header.tsx';
 
 const router = createBrowserRouter([
   {
@@ -17,12 +17,12 @@ const router = createBrowserRouter([
     element: <><Header/><App /></>,
   },
   {
-    path: "/cadastro-produto",
-    element: <><Header/><CadastroProduto/></>,
+    path: "/cadastro-exercicio",
+    element: <><Header/><CadastroExercicio/></>,
   },
   {
-    path: "/alterar-produto/:id",
-    element: <><Header/><AlterarProduto/></>,
+    path: "/alterar-exercicio/:id",
+    element: <><Header/><AlterarExercicio/></>,
   },
 ]);
 

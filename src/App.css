@@ -40,23 +40,23 @@
 .read-the-docs {
   color: #888;
 }
-.produto-item{
+.exercicio-item{
   border: 1px solid #f0f0f0;
   border-radius: 5px;
   padding: 30px;
   box-shadow: 0 0 10px #f0f0f0;
 }
-.produto-item>img{
+.exercicio-item>img{
   height: auto;
   width: 100%;
 }
-.container-produtos{
+.container-exercicios{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   
 }
-.container-produtos h1{
+.container-exercicios h1{
   font-size: 2em;
 }
 

@@ -1,37 +1,35 @@
 import { FormEvent, useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function CadastroProduto() {
+export default function CadastroExercicio() {
     const navigate = useNavigate();
     const [id, setId] = useState("")
     const [descricao, setDescricao] = useState("")
     const [nome, setNome] = useState("")
-    const [preco, setPreco] = useState("")
     const [imagem, setImagem] = useState("")
 
     function handleForm(event: FormEvent) {
         event.preventDefault();
-        console.log("Tentei cadastrar produtos");
-        const produto = {
+        console.log("Tentei cadastrar exercicios");
+        const exercicio = {
             id: id,
             nome: nome,
             descricao: descricao,
-            preco: preco,
             imagem: imagem
         }
-        fetch("http://localhost:8000/produtos", {
+        fetch("http://localhost:8000/exercicios", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(produto)
+            body: JSON.stringify(exercicio)
         }).then(response => {
             if (response.status === 200) {
-                alert("Produto cadastrado com sucesso")
+                alert("Exercicio cadastrado com sucesso")
                 navigate("/")
             }
             else {
-                alert("Erro ao cadastrar produto")
+                alert("Erro ao cadastrar exercicio")
             }
         })
     }
@@ -40,9 +38,6 @@ export default function CadastroProduto() {
     }
     function handleDescricao(event: ChangeEvent<HTMLInputElement>) {
         setDescricao(event.target.value)
-    }
-    function handlePreco(event: ChangeEvent<HTMLInputElement>) {
-        setPreco(event.target.value)
     }
     function handleNome(event: ChangeEvent<HTMLInputElement>) {
         setNome(event.target.value)
@@ -54,7 +49,7 @@ export default function CadastroProduto() {
     return (
         <>
             <main className="container">
-                <h1>Tela Cadastro Produtos</h1>
+                <h1>Tela Cadastro Exercicios</h1>
                 <form onSubmit={handleForm}>
                     <div>
                         <label htmlFor="id">id</label>
@@ -67,10 +62,6 @@ export default function CadastroProduto() {
                     <div>
                         <label htmlFor="descricao">descricao</label>
                         <input type="text" name="descricao" onChange={handleDescricao} />
-                    </div>
-                    <div>
-                        <label htmlFor="preco">preço</label>
-                        <input type="text" name="preco" onChange={handlePreco} />
                     </div>
                     <div>
                         <label htmlFor="imagem">imagem</label>

@@ -1,54 +1,48 @@
 import { useParams } from "react-router-dom";
 import { FormEvent, useState, ChangeEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-function AlterarProduto() {
+function AlterarExercicio() {
     const { id } = useParams()
     useEffect(() => {
-        fetch(`http://localhost:8000/produtos/${id}`)
+        fetch(`http://localhost:8000/exercicios/${id}`)
             .then(resposta => resposta.json())
             .then(dados => {
                 setDescricao(dados.descricao)
                 setNome(dados.nome)
-                setPreco(dados.preco)
                 setImagem(dados.imagem)
             })
     }, [])
     const navigate = useNavigate();
     const [descricao, setDescricao] = useState("")
     const [nome, setNome] = useState("")
-    const [preco, setPreco] = useState("")
     const [imagem, setImagem] = useState("")
 
     function handleForm(event: FormEvent) {
         event.preventDefault();
-        console.log("Tentei cadastrar produtos");
-        const produto = {
+        console.log("Tentei cadastrar exercicios");
+        const exercicio = {
             nome: nome,
             descricao: descricao,
-            preco: preco,
             imagem: imagem
         }
-        fetch(`http://localhost:8000/produtos/${id}`, {
+        fetch(`http://localhost:8000/exercicios/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(produto)
+            body: JSON.stringify(exercicio)
         }).then(response => {
             if (response.status === 200) {
-                alert("Produto alterado com sucesso")
+                alert("Exercicio alterado com sucesso")
                 navigate("/")
             }
             else {
-                alert("Erro ao alterar produto")
+                alert("Erro ao alterar exercicio")
             }
         })
     }
     function handleDescricao(event: ChangeEvent<HTMLInputElement>) {
         setDescricao(event.target.value)
-    }
-    function handlePreco(event: ChangeEvent<HTMLInputElement>) {
-        setPreco(event.target.value)
     }
     function handleNome(event: ChangeEvent<HTMLInputElement>) {
         setNome(event.target.value)
@@ -60,7 +54,7 @@ function AlterarProduto() {
     return (
         <>
             <main>
-                <div>Alterar Produto {id}</div>
+                <div>Alterar Exercicio {id}</div>
                 <form onSubmit={handleForm}>
                     <div>
                         <label htmlFor="id">id</label>
@@ -73,10 +67,6 @@ function AlterarProduto() {
                     <div>
                         <label htmlFor="descricao">descricao</label>
                         <input type="text" name="descricao" value={descricao} onChange={handleDescricao} />
-                    </div>
-                    <div>
-                        <label htmlFor="preco">preço</label>
-                        <input type="text" name="preco" value={preco} onChange={handlePreco} />
                     </div>
                     <div>
                         <label htmlFor="imagem">imagem</label>
@@ -92,4 +82,4 @@ function AlterarProduto() {
     )
 }
 
-export default AlterarProduto;
+export default AlterarExercicio;

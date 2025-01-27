@@ -3,23 +3,22 @@ import { Link } from 'react-router-dom'
 
 import './App.css'
 
-type ProdutoType = {
+type ExercicioType = {
   id:number,
   nome:string,
   descricao:string,
-  preco:string,
   imagem:string
 }
 function App() {
-  const [produtos, setProdutos] = useState<ProdutoType[]>([])
+  const [exercicios, setExercicios] = useState<ExercicioType[]>([])
   //useEffect(O QUe fazer, Quando Fazer)
   useEffect(()=>{
-    fetch("http://localhost:8000/produtos")
+    fetch("http://localhost:8000/exercicios")
     .then(resposta=>resposta.json())
-    .then(dados=>setProdutos(dados))
+    .then(dados=>setExercicios(dados))
   },[])
   function handleExcluir(id:number){
-    fetch(`http://localhost:8000/produtos/${id}`,{
+    fetch(`http://localhost:8000/exercicios/${id}`,{
       method:"DELETE"
     })
     .then(resposta=>{
@@ -35,16 +34,15 @@ function App() {
 
   return (
     <>  
-      <main className="container-produtos">
-        {produtos.map(prod=>{
+      <main className="container-exercicios">
+        {exercicios.map(prod=>{
           return(
-            <div key={prod.id} className="produto-item">
+            <div key={prod.id} className="exercicio-item">
               <h1>{prod.nome}</h1>
               <img src={prod.imagem} alt="Imagem de celular" />
-              <p>{prod.preco}</p>
               <p>{prod.descricao}</p>
               <button onClick={()=>{handleExcluir(prod.id)}}>Excluir</button>
-              <Link to={`/alterar-produto/${prod.id}`}>Alterar</Link>
+              <Link to={`/alterar-exercicio/${prod.id}`}>Alterar</Link>
             </div>
           )
         })}
