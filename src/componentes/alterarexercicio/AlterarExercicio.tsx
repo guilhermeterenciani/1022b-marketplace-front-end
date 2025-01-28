@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function AlterarExercicio() {
     const { id } = useParams()
     useEffect(() => {
-        fetch(`http://localhost:8000/exercicios/${id}`)
+        fetch(`https://one022b-marketplace-1lh5.onrender.com/exercicios/${id}`)
             .then(resposta => resposta.json())
             .then(dados => {
                 setDescricao(dados.descricao)
@@ -25,7 +25,7 @@ function AlterarExercicio() {
             descricao: descricao,
             imagem: imagem
         }
-        fetch(`http://localhost:8000/exercicios/${id}`, {
+        fetch(`https://one022b-marketplace-1lh5.onrender.com/exercicios/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

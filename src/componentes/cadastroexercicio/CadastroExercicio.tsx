@@ -17,7 +17,7 @@ export default function CadastroExercicio() {
             descricao: descricao,
             imagem: imagem
         }
-        fetch("http://localhost:8000/exercicios", {
+        fetch("https://one022b-marketplace-1lh5.onrender.com/exercicios", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

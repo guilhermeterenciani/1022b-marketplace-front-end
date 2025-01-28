@@ -19,17 +19,12 @@ type UsuarioType = {
 function App() {
   const [exercicios, setExercicios] = useState<ExercicioType[]>([])
   useEffect(()=>{
-    fetch("http://localhost:8000/exercicios")
-    .then(resposta=>resposta.json())
-    .then(dados=>setExercicios(dados))
-  },[])
-  useEffect(()=>{
     fetch("https://one022b-marketplace-1lh5.onrender.com/exercicios")
     .then(resposta=>resposta.json())
     .then(dados=>setExercicios(dados))
   },[])
   function handleExcluir(id:number){
-    fetch(`http://localhost:8000/exercicios/${id}`,{
+    fetch(`https://one022b-marketplace-1lh5.onrender.com/exercicios/${id}`,{
       method:"DELETE"
     })
     .then(resposta=>{
@@ -45,17 +40,12 @@ function App() {
 
   const [usuarios, setUsuarios] = useState<UsuarioType[]>([])
   useEffect(()=>{
-    fetch("http://localhost:8000/usuarios")
-    .then(resposta=>resposta.json())
-    .then(dados=>setUsuarios(dados))
-  },[])
-  useEffect(()=>{
     fetch("https://one022b-marketplace-1lh5.onrender.com/usuarios")
     .then(resposta=>resposta.json())
     .then(dados=>setUsuarios(dados))
   },[])
   function handleExcluirUser(id:number){
-    fetch(`http://localhost:8000/usuarios/${id}`,{
+    fetch(`https://one022b-marketplace-1lh5.onrender.com/usuarios/${id}`,{
       method:"DELETE"
     })
     .then(resposta=>{

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function AlterarUsuario() {
     const { id } = useParams()
     useEffect(() => {
-        fetch(`http://localhost:8000/usuarios/${id}`)
+        fetch(`https://one022b-marketplace-1lh5.onrender.com/usuarios/${id}`)
             .then(resposta => resposta.json())
             .then(dados => {
                 setFuncao(dados.descricao)
@@ -28,7 +28,7 @@ function AlterarUsuario() {
             foto: foto,
             email: email
         }
-        fetch(`http://localhost:8000/usuarios/${id}`, {
+        fetch(`https://one022b-marketplace-1lh5.onrender.com/usuarios/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

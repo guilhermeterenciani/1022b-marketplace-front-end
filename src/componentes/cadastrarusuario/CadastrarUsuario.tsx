@@ -19,7 +19,7 @@ export default function CadastroUsuario() {
             foto: foto,
             email: email
         }
-        fetch("http://localhost:8000/usuarios", {
+        fetch("https://one022b-marketplace-1lh5.onrender.com/usuarios", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
