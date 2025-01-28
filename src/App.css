@@ -1,66 +1,174 @@
-#root {
-  /* max-width: 1280px; */
-  margin: 0 auto;
-  text-align: center;
-  width: 100vw;
+:root {
+  --primary-color: #1db954; /* Verde principal */
+  --secondary-color: #121212; /* Fundo principal */
+  --card-bg: #181818; /* Fundo dos cards */
+  --text-color: #ffffff; /* Texto principal */
+  --text-muted: #b3b3b3; /* Texto secundário */
+  --highlight-color: #1ed760; /* Verde de destaque */
+  --shadow-color: rgba(0, 0, 0, 0.7);
+  --border-radius: 12px;
+  --font-family: 'Poppins', sans-serif;
 }
 
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Geral */
+#root {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+  text-align: left;
+}
+
+/* Logo */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 8em;
+  margin: 20px auto;
+  padding: 1em;
+  cursor: pointer;
+  transition: transform 0.5s ease, filter 0.3s ease;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  transform: rotate(5deg) scale(1.1);
+  filter: drop-shadow(0 0 20px var(--primary-color));
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* Card genérico */
 .card {
-  padding: 2em;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px var(--shadow-color);
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px var(--shadow-color);
 }
 
-.read-the-docs {
-  color: #888;
-}
-.exercicio-item{
-  border: 1px solid #f0f0f0;
-  border-radius: 5px;
-  padding: 30px;
-  box-shadow: 0 0 10px #f0f0f0;
-}
-.exercicio-item>img{
-  height: auto;
-  width: 100%;
-}
-.container-exercicios{
+/* Exercícios */
+.container-exercicios {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
-  
-}
-.container-exercicios h1{
-  font-size: 2em;
+  padding: 20px;
 }
 
-.imagem-previa-upload{
-  width:300px;
-  height:auto;
+.exercicio-item {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px var(--shadow-color);
+  padding: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  color: var(--text-muted);
+}
+.exercicio-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  color: var(--text-color);
+}
+
+.exercicio-item img {
+  border-radius: var(--border-radius);
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.container-exercicios h1 {
+  font-size: 2.5em;
+  color: var(--primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Usuários */
+.container-usuarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.usuario-item {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px var(--shadow-color);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.usuario-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.usuario-item img {
+  width: 80px; /* Tamanho da foto */
+  height: 80px;
+  border-radius: 50%; /* Torna a imagem circular */
+  object-fit: cover; /* Garante que a imagem fique bem ajustada */
+  margin-bottom: 15px;
+  border: 2px solid var(--highlight-color);
+}
+
+.usuario-item h2 {
+  font-size: 1.5em;
+  margin: 10px 0 5px;
+  color: var(--text-color);
+}
+
+.usuario-item p {
+  font-size: 1em;
+  margin: 5px 0;
+  color: var(--text-muted);
+}
+
+.usuario-item a {
+  font-size: 0.9em;
+  color: var(--highlight-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.usuario-item a:hover {
+  color: var(--text-color);
+}
+
+/* Botões organizados */
+.usuario-item .button-container {
+  display: flex;
+  justify-content: space-between; /* Mantém os botões afastados */
+  gap: 10px; /* Espaço entre os botões */
+  margin-top: 15px; /* Espaço superior em relação ao conteúdo */
+}
+
+.usuario-item .button {
+  flex: 1; /* Os botões terão tamanhos iguais */
+  text-align: center; /* Centraliza o texto dos botões */
+  padding: 10px 15px;
+  background: var(--primary-color);
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 0.9em;
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 20px var(--shadow-color);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.usuario-item .button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px var(--shadow-color);
 }

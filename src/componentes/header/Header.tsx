@@ -3,11 +3,18 @@ import './Header.css'
 function Header(){
     return(
         <header>
-            <Link to="/"><h1>MarketPlace</h1></Link>
+            <Link to="/"><h1>EasyHealth</h1></Link>
             <nav>
                 <ul>
                     <li>
                         <Link to="/cadastro-exercicio">Cadastrar Exercício</Link>
+                    </li>
+                </ul>
+            </nav>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/cadastro-usuario">Cadastrar Usuário</Link>
                     </li>
                 </ul>
             </nav>

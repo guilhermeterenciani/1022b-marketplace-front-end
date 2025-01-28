@@ -8,7 +8,9 @@ import {
 } from "react-router-dom";
 
 import CadastroExercicio from './componentes/cadastroexercicio/CadastroExercicio.tsx'
+import CadastroUsuario from './componentes/cadastrarusuario/CadastrarUsuario.tsx'
 import AlterarExercicio from './componentes/alterarexercicio/AlterarExercicio.tsx'
+import AlterarUsuario from './componentes/alterarusuario/AlterarUsuario.tsx'
 import Header from './componentes/header/Header.tsx';
 
 const router = createBrowserRouter([
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
   {
     path: "/alterar-exercicio/:id",
     element: <><Header/><AlterarExercicio/></>,
+  },
+  {
+    path: "/cadastro-usuario",
+    element: <><Header/><CadastroUsuario/></>,
+  },
+  {
+    path: "/alterar-usuario/:id",
+    element: <><Header/><AlterarUsuario/></>,
   },
 ]);
 
