@@ -81,8 +81,8 @@ function App() {
             <div key={user.id} className="Usuario-item">
               <h1>{user.nome}</h1>
               <img src={user.foto} alt="SEM FOTO" />
-              <p>{user.email}</p>
-              <p>{user.funcao}</p>
+              <p><b>Email:</b> {user.email}</p>
+              <p><b>Função:</b> {user.funcao}</p>
               <button className='ExButton' onClick={()=>{handleExcluirUser(user.id)}}>Excluir</button>
               <Link className='AltButton' to={`/alterar-usuario/${user.id}`}>Alterar</Link>
             </div>

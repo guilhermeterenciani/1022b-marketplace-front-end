@@ -66,6 +66,7 @@ export default function CadastroExercicio() {
                     <div>
                         <label htmlFor="imagem">Imagem</label>
                         <input type="text" name="imagem" onChange={handleImagem} />
+                        {imagem && <img className="imagem-previa-upload" src={imagem} />}
                     </div>
                     <div>
                         <input type="submit" value="Cadastrar" />
