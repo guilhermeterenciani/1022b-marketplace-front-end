@@ -23,6 +23,11 @@ function App() {
     .then(resposta=>resposta.json())
     .then(dados=>setExercicios(dados))
   },[])
+  useEffect(()=>{
+    fetch("https://one022b-marketplace-1lh5.onrender.com/exercicios")
+    .then(resposta=>resposta.json())
+    .then(dados=>setExercicios(dados))
+  },[])
   function handleExcluir(id:number){
     fetch(`http://localhost:8000/exercicios/${id}`,{
       method:"DELETE"
@@ -41,6 +46,11 @@ function App() {
   const [usuarios, setUsuarios] = useState<UsuarioType[]>([])
   useEffect(()=>{
     fetch("http://localhost:8000/usuarios")
+    .then(resposta=>resposta.json())
+    .then(dados=>setUsuarios(dados))
+  },[])
+  useEffect(()=>{
+    fetch("https://one022b-marketplace-1lh5.onrender.com/usuarios")
     .then(resposta=>resposta.json())
     .then(dados=>setUsuarios(dados))
   },[])
